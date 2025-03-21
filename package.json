@@ -5,7 +5,8 @@
   "description": "App to resize image dimensions",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "npx electronmon ."
   },
   "author": "Lucas Santana",
   "license": "MIT",
