@@ -20,11 +20,28 @@ const getOriginalFileDimensions = (file) => {
   }
 }
 
+const showAlert = (message, type) => {
+  const SUCCESS_COLOR = '#44d62c';
+  const ERROR_COLOR = '#ff0033';
+
+  const background = type === 'success' ? SUCCESS_COLOR : ERROR_COLOR;
+  Toastify.toast({
+    text: message,
+    duration: 5000,
+    close: false,
+    style: {
+      background: background,
+      color: 'white',
+      textAlign: 'center',
+    }
+  });
+}
+
 function loadImage(e) {
   const file = e.target.files[0];
 
   if(!isFileImage(file)) {
-    alert('Please select an image');
+    showAlert('Please select an image', 'error');
     return;
   }
 
