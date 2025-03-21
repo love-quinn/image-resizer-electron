@@ -1,8 +1,11 @@
-const { contextBridge, ipcRenderer } = require('electron');
+const os = require('os');
+const path = require('path')
+const { contextBridge } = require('electron');
 
-contextBridge.exposeInMainWorld('versions', {
-    node: () => process.version.node,
-    chrome: () => process.versions.chrome,
-    electron: () => process.versions.electron,
-    // we can also expose variables, not just functions
+contextBridge.exposeInMainWorld('os', {
+    homedir: () => os.homedir()
+});
+
+contextBridge.exposeInMainWorld('path', {
+    join: (...args) => path.join(...args)
 });
