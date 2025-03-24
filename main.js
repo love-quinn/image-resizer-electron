@@ -5,8 +5,6 @@ const resizeImg = require("resize-img");
 
 const { app, BrowserWindow, Menu, ipcMain, shell } = require("electron");
 
-process.env.NODE_ENV = 'production';
-
 const isDev = process.env.NODE_ENV !== "production";
 const isMac = process.platform === "darwin";
 
@@ -17,6 +15,8 @@ function createMainWindow() {
     title: "Image Resizer",
     width: isDev ? 1000 : 500,
     height: 600,
+    icon: `${__dirname}/assets/icons/Icon_256x256.png`,
+    resizable: isDev,
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: true,
